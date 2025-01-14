@@ -16,3 +16,46 @@ int main() {
 }
 
 
+#include <stdio.h>
+
+void findUnique(int arr[], int n) {
+    int xor = 0, a = 0, b = 0, mask;
+    for (int i = 0; i < n; i++) xor ^= arr[i];
+    mask = xor & -xor;
+    for (int i = 0; i < n; i++) {
+        if (arr[i] & mask) a ^= arr[i];
+        else b ^= arr[i];
+    }
+    printf("%d %d\n", a, b);
+}
+
+int main() {
+    int arr[] = {4, 5, 4, 6, 7, 5};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    findUnique(arr, n);
+    return 0;
+}
+
+
+
+
+
+#include <stdio.h>
+
+int isPowerOfTwo(int n) {
+    return n > 0 && (n & (n - 1)) == 0;
+}
+
+int main() {
+    int n;
+    printf("Num: ");
+    scanf("%d", &n);
+    printf("%s\n", isPowerOfTwo(n) ? "Yes" : "No");
+    return 0;
+}
+
+
+
+
+
+
