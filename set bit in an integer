@@ -54,8 +54,60 @@ int main() {
     return 0;
 }
 
+#include <stdio.h>
+
+int findSetBitPos(int n) {
+    return (n > 0 && (n & (n - 1)) == 0) ? __builtin_ctz(n) + 1 : -1;
+}
+
+int main() {
+    int n;
+    printf("Num: ");
+    scanf("%d", &n);
+    int pos = findSetBitPos(n);
+    printf("%d\n", pos);
+    return 0;
+}
 
 
+#include <stdio.h>
+
+int countFlips(int a, int b) {
+    int xor = a ^ b, count = 0;
+    while (xor) {
+        count += xor & 1;
+        xor >>= 1;
+    }
+    return count;
+}
+
+int main() {
+    int a, b;
+    printf("A: ");
+    scanf("%d", &a);
+    printf("B: ");
+    scanf("%d", &b);
+    printf("%d\n", countFlips(a, b));
+    return 0;
+}
+#include <stdio.h>
+
+int square(int n) {
+    int res = 0, temp = n;
+    while (temp > 0) {
+        res += n;
+        temp--;
+    }
+    return res;
+}
+
+int main() {
+    int n;
+    printf("Num: ");
+    scanf("%d", &n);
+    printf("%d\n", square(n));
+    return 0;
+}
 
 
 
